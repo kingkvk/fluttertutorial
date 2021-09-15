@@ -19,6 +19,8 @@ class _LoginPageState extends State<LoginPage> {
       body: ElevatedButton(
         child:const Text("Move to Game Page"),
         onPressed: (){
+
+          // Just a Dummy Navigation
          Navigator.push(
     context,
     MaterialPageRoute(builder: (context) =>const GamePage()),

@@ -45,6 +45,8 @@ class _GamePageState extends State<GamePage> {
       ),    
     );
   }
+  
+  // Rolling Dice Function
   _rolldice(){
     chances = (chances! -1);
     int dicevalue = (Random().nextInt(6)+1);
