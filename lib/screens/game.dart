@@ -35,6 +35,7 @@ class _GamePageState extends State<GamePage> {
                 child: Center(child: Text(diceno.toString(),style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 50,color: Colors.white),),)
       ),
           ),
+          //const
           const SizedBox(height: 50,),
           ElevatedButton(
         

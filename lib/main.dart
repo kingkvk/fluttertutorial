@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
+
+      //Const
       home: const LoginPage(),
     );
   }
