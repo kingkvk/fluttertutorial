@@ -22,6 +22,9 @@ class _LeaderBoardState extends State<LeaderBoard> {
   List<Scores> scores = [];
   List<Scores> finalscores = [];
 
+  String score = "";
+  String name = "";
+
   @override
   void initState() {
     super.initState();
@@ -40,12 +43,17 @@ class _LeaderBoardState extends State<LeaderBoard> {
 
       // print(responseString);
 
-      responseString.forEach((element) {
+      for (var element in responseString) {
+        // print(element.toString());
+        score = element.toString().substring(8, 10);
+        name = element.toString().substring(18, element.toString().length - 1);
+        // print(score);
+        // print(name);
+
         setState(() {
-          scores.add(Scores(int.parse(element.toString().substring(8, 10)),
-              element.toString().substring(17, element.toString().length - 1)));
+          scores.add(Scores(int.parse(score), name));
         });
-      });
+      }
 
       setState(() {
         scores.sort((a, b) => a.score.compareTo(b.score));
@@ -80,7 +88,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
             if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return Container(
+              return SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height,
                 child: ListView.builder(
@@ -88,7 +96,7 @@ class _LeaderBoardState extends State<LeaderBoard> {
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
                           margin: const EdgeInsets.all(5),
-                          padding: EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(30),
                           height: 100,
                           color: Colors.grey.shade100,
                           width: double.infinity,
