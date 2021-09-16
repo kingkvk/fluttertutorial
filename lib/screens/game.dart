@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttertutorial/screens/leaderboard.dart';
 import 'package:fluttertutorial/screens/login.dart';
 
 class GamePage extends StatefulWidget {
@@ -70,7 +71,12 @@ class _GamePageState extends State<GamePage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LeaderBoard()),
+                );
+              },
             )
           ],
         ),
