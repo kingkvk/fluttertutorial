@@ -1,6 +1,8 @@
 # fluttertutorial
 
-A Flutter Tutorial Series
+A Flutter Tutorial Series (Firebase With Flutter)
+Firebase Config File is Not Included in The Source for Security Purpose
+Add Firebase Config file google-service.json to (Android/app/) Directory.
 
 ## Getting Started
 
