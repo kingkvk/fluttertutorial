@@ -183,6 +183,7 @@ class _GamePageState extends State<GamePage> {
     if (chances == 0) {
       setState(() {
         gameover = false;
+        //adding data to firebase
         addData();
       });
     }
