@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -17,6 +18,9 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   FirebaseAuth auth = FirebaseAuth.instance;
+  DatabaseReference dbRef =
+      FirebaseDatabase.instance.reference().child("HighScore");
+
   int? diceno = 0;
   int? chances = 10;
   bool gameover = true;
@@ -168,6 +172,10 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+  void addData() {
+    dbRef.push().set({'name': auth.currentUser!.email, 'score': score});
+  }
+
   // Rolling Dice Function
   _rolldice() {
     chances = (chances! - 1);
@@ -175,6 +183,7 @@ class _GamePageState extends State<GamePage> {
     if (chances == 0) {
       setState(() {
         gameover = false;
+        addData();
       });
     }
 
