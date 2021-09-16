@@ -172,6 +172,7 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+// function to add data to firebase
   void addData() {
     dbRef.push().set({'name': auth.currentUser!.email, 'score': score});
   }
