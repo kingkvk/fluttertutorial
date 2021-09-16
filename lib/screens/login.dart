@@ -99,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
             ]))));
   }
 
+// Intialize firebase for Login Auth
   login() async {
     await Firebase.initializeApp();
     FirebaseAuth.instance
